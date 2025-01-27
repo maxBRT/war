@@ -19,7 +19,7 @@ public class Deck {
             for (int value = 2; value <= 14; value++) {
                 BufferedImage sprite;
                 try {
-                    sprite = ImageIO.read(new File("cards_textures/" + suit + "_" + Integer.toString(value) + ".png"));
+                    sprite = ImageIO.read(new File("war/cards_textures/" + suit + "_" + Integer.toString(value) + ".png"));
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
