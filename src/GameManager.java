@@ -29,7 +29,7 @@ public class GameManager {
         cpuScore = new JLabel("CPU Current Cards:" + Integer.toString(cpuHand.getMainHand().size() + cpuHand.getSecondHand().size()));
         cpuScore.setFont(new Font("Arial", Font.BOLD, 24));
         cpuScore.setForeground(Color.WHITE);
-        playerScore = new JLabel("CPU Current Cards:" + Integer.toString(playerHand.getMainHand().size() + playerHand.getSecondHand().size()));
+        playerScore = new JLabel("Player Current Cards:" + Integer.toString(playerHand.getMainHand().size() + playerHand.getSecondHand().size()));
         playerScore.setFont(new Font("Arial", Font.BOLD, 24));
         playerScore.setForeground(Color.WHITE);
     }
@@ -43,7 +43,7 @@ public class GameManager {
 
     public void UpdateScores(Hand playerHand, Hand cpuHand){
         cpuScore.setText("CPU Current Cards:" + Integer.toString(cpuHand.getMainHand().size() + cpuHand.getSecondHand().size()));
-        playerScore.setText("CPU Current Cards:" + Integer.toString(playerHand.getMainHand().size() + playerHand.getSecondHand().size()));
+        playerScore.setText("Player Current Cards:" + Integer.toString(playerHand.getMainHand().size() + playerHand.getSecondHand().size()));
     }
 
 }

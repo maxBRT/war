@@ -19,8 +19,8 @@ public class GameWindow {
     private JLabel cpuScoreLabel;
 
 
-    private int WINDOW_WIDTH = 1920;
-    private int WINDOW_HEIGHT = 1080;
+    private int WINDOW_WIDTH = 1440;
+    private int WINDOW_HEIGHT = 900;
 
     public void InitWindow(){
 
