@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -19,20 +20,18 @@ public class Main {
         window.DrawUI(gameManager);
         window.RefreshWindow();
 
-        gameManager.playButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent actionEvent) {
-                window.DrawCards((Card) playerHand.getMainHand().getFirst(), (Card) cpuHand.getMainHand().getFirst());
-                window.RefreshWindow();
-                gameManager.CompareCards(playerHand.getMainHand(), cpuHand.getMainHand());
-                gameManager.UpdateScores(playerHand, cpuHand);
-            }
+        gameManager.playButton.addActionListener(actionEvent -> {
+            Card playerCard = (Card) playerHand.getMainHand().getFirst();
+            Card cpuCard = (Card) cpuHand.getMainHand().getFirst();
+            window.DrawCards(playerCard, cpuCard);
+            window.RefreshWindow();
+            gameManager.CompareCards(playerHand.getMainHand(), cpuHand.getMainHand(), window);
+            gameManager.UpdateScores(playerHand, cpuHand);
         });
 
-        window.ClearButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent actionEvent) {
-                window.RefreshUI(gameManager);
-                window.RefreshWindow();
-            }
+        window.ClearButton.addActionListener(actionEvent -> {
+            window.RefreshUI(gameManager);
+            window.RefreshWindow();
         });
     }
 }
