@@ -9,8 +9,6 @@ public class GameWindow {
     private JFrame mainFrame = new JFrame("War");
     private JPanel background = new JPanel();
 
-    public JButton ClearButton = new JButton("Clear");
-
     private JPanel cpuCardPanel;
     private JPanel playerCardPanel;
     private JPanel playerScorePanel;
@@ -18,9 +16,10 @@ public class GameWindow {
     private JLabel playerScoreLabel;
     private JLabel cpuScoreLabel;
 
+    private int WINDOW_WIDTH = 1240;
+    private int WINDOW_HEIGHT = 600;
 
-    private int WINDOW_WIDTH = 1440;
-    private int WINDOW_HEIGHT = 900;
+    public boolean cardOnScreen = false;
 
     public void InitWindow(){
 
@@ -34,7 +33,6 @@ public class GameWindow {
         //BackGround
         background.setBackground(Color.BLUE);
         background.add(gameManager.playButton);
-        background.add(ClearButton);
         mainFrame.add(background, BorderLayout.CENTER);
 
         cpuScorePanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -62,7 +60,7 @@ public class GameWindow {
                 g.drawImage(playerCard.sprite, 0, 0, null);
             }
         };
-        playerCardPanel.setPreferredSize(new Dimension(playerCard.sprite.getWidth(), playerCard.sprite.getHeight()));
+        playerCardPanel.setPreferredSize(new Dimension(playerCard.sprite.getWidth() / 2, playerCard.sprite.getHeight() / 2));
         mainFrame.add(playerCardPanel, BorderLayout.EAST);
 
         cpuCardPanel = new JPanel(){
@@ -71,8 +69,10 @@ public class GameWindow {
                 g.drawImage(cpuCard.sprite, 0, 0, null);
             }
         };
-        cpuCardPanel.setPreferredSize(new Dimension(cpuCard.sprite.getWidth(), cpuCard.sprite.getHeight()));
+        cpuCardPanel.setPreferredSize(new Dimension(cpuCard.sprite.getWidth() / 2, cpuCard.sprite.getHeight() / 2));
         mainFrame.add(cpuCardPanel, BorderLayout.WEST);
+
+        cardOnScreen = true;
     }
 
     public void RefreshWindow(){
@@ -82,5 +82,6 @@ public class GameWindow {
     public void RefreshUI(GameManager gameManager) {
         mainFrame.remove(cpuCardPanel);
         mainFrame.remove(playerCardPanel);
+        cardOnScreen = false;
     }
 }

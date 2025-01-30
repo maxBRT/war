@@ -41,9 +41,9 @@ public class GameManager {
                 playerCard = (Card) playerHand.getFirst();
                 cpuCard = (Card) cpuHand.getFirst();
 
-               /* window.RefreshUI(this);
+                if(window.cardOnScreen){window.RefreshUI(this);}
                 window.DrawCards(playerCard, cpuCard);
-                window.RefreshWindow(); */
+                window.RefreshWindow();
 
                 if(playerCard.getValue() > cpuCard.getValue()){
                     atWar = false;

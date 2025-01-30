@@ -21,17 +21,15 @@ public class Main {
         window.RefreshWindow();
 
         gameManager.playButton.addActionListener(actionEvent -> {
+            if (window.cardOnScreen) {
+                window.RefreshUI(gameManager);
+            }
             Card playerCard = (Card) playerHand.getMainHand().getFirst();
             Card cpuCard = (Card) cpuHand.getMainHand().getFirst();
             window.DrawCards(playerCard, cpuCard);
             window.RefreshWindow();
             gameManager.CompareCards(playerHand.getMainHand(), cpuHand.getMainHand(), window);
             gameManager.UpdateScores(playerHand, cpuHand);
-        });
-
-        window.ClearButton.addActionListener(actionEvent -> {
-            window.RefreshUI(gameManager);
-            window.RefreshWindow();
         });
     }
 }
